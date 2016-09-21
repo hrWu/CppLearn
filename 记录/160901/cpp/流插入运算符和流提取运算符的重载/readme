@@ -1,0 +1,12 @@
+流插入运算符和流提取运算符的重载
+
+cout 是在 iostream中定义的 ostream 类的对象
+
+<<能用在cout上是因为在iostream中对<<进行了重载
+
+考虑 cout << 5; cout << "123"; 
+cout << 5 << "123";//本质上是 cout.operator<<(5).operator<<("123");
+
+cin是istream类的对象
+ 
+

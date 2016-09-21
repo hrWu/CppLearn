@@ -1,0 +1,63 @@
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+using namespace std;
+
+class student{
+	private:
+		char name[20];
+		int  age;
+		char stdID[20];
+		unsigned int  grade[4];
+	public :
+		void init(char *name_,int age_, char * stdID_, unsigned int *grade);
+		void show();
+};
+
+void student::show()
+{
+	cout <<name << ',' << age << ',' << stdID << ',' << (grade[0]+grade[0]+grade[0]+grade[0])/4 << endl;
+}
+
+void student::init(char *name_,int age_, char * stdID_, unsigned int *grade_)
+{
+	strcpy(name,name_);
+	strcpy(stdID,stdID_);
+	age = age_;
+	int i = 0;
+	for(;i<4;i++){
+		grade[i] = grade_[i];
+	}
+}
+
+int main()
+{
+	char buf[80] = {0};
+	char buf1[7][20] = {0};
+	unsigned int grade[4] = {0};
+
+	cin >> buf;
+
+	char *token = strtok(buf,",");
+	int i = 0;
+	while(token != NULL){
+		//cout << token << endl;
+		strcpy(buf1[i++],token);
+		token = strtok(NULL,",");
+	}
+
+	i = 0;
+	for(;i<4;i++){
+		grade[i] = atoi(buf1[i+3]);
+	}
+
+	student tom;
+	tom.init(buf1[0],atoi(buf1[1]),buf1[2],grade);
+	tom.show();
+	//cout << buf1[0] << buf1[1] << buf1[2] << endl;
+	//cout << grade[0] << grade[1] << grade[2] << endl;
+
+	return 0;
+}

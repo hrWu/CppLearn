@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+using namespace std;
+
+class MyString: public string{
+	private:
+	public:
+		MyString():string(){};
+		MyString(const char *chstr):string(chstr){};
+		MyString(const string &str):string(str){};
+		MyString(const MyString &mystr):string(mystr){};
+};
+
+int main() {
+    MyString s1("abcd-"),s2,s3("efgh-"),s4(s1);
+    MyString SArray[4] = {"big","me","about","take"};
+    cout << "1. " << s1 << s2 << s3<< s4<< endl;
+    s4 = s3;   
+   	s3 = s1 + s3;//s1+s3调用了string的+重载运算符，返回String类型，故此时类型转换构造函数
+    cout << "2. " << s1 << endl;
+    cout << "3. " << s2 << endl;
+    cout << "4. " << s3 << endl;
+    cout << "5. " << s4 << endl;
+    cout << "6. " << s1[2] << endl;
+    return 0;
+}

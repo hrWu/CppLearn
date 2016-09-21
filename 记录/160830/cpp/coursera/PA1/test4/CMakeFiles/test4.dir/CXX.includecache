@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wuhaorui/Desktop/记录/160830/cpp/coursera/PA1/test4/test4.cpp
+iostream
+-
+cstdlib
+-
+iomanip
+-
+

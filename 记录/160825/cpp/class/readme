@@ -1,0 +1,7 @@
+类的成员被访问范围
+
+public：公有成员
+private：私有成员
+protected：制定保护成员
+
+缺省标示默认是private成员

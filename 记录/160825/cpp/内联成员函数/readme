@@ -1,0 +1,18 @@
+内联成员函数：
+1 inline + 成员函数
+2 将整个函数体定义在类的定义内部：
+	class B{
+		inline void func1();
+		void  func2(){};	
+	}
+
+	void B::func()
+	{...}
+
+成员函数的重载与参数缺省：
+	class B{
+		public:
+		void func(int i = 0, int j = 2);//缺省
+		void func(double i);//重载
+		int func(double i, double j);//重载
+	}

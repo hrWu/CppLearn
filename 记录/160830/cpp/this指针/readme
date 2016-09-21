@@ -1,0 +1,36 @@
+this 指针
+
+作用：指向成员函数所作用的对象
+
+class A
+{
+	int i;
+	public:
+		void Hello(){cout << "hello" << endl};	
+};
+
+int main()
+{
+	A * p = NULL;
+	p->Hello();	
+}
+
+以上语句运行后没有错误，且打印结果为：
+~#hello
+原因是：void Hello(){...} <=> void Hello(A * this){...}
+在成员函数中没有使用到实参p赋值给的this指针，所以没有错误发生；
+若更改Hello函数为：
+{
+	cout << i << "hello" << endl;	
+}
+此时会出错,上内容等价为：
+{
+	cout << this->i << "hello" << endl;	
+}
+访问了空指针！
+
+注意：
+	静态成员函数中不能使用this指针！
+	因为静态成员函数不具体作用于某个对象！
+	因此，静态成员函数的真实的参数个数，就是程序中所写出的参数个数~
+	而一般的成员函数则会默认多出一个this指针！`
